@@ -1,0 +1,22 @@
+{
+    "name": "php-tool-kit/console-form",
+    "description": "Ferramenta para entrada de dados no console, simulando um formul\u0000rio.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Everton da Rosa",
+            "email": "everton3x@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "league/climate": "dev-master",
+        "php": ">=8.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "PTK\\Console\\Form\\": "src"
+        }
+    }
+}
