@@ -1,0 +1,65 @@
+<?php
+
+namespace PTK\Console\Form\Field;
+
+use PTK\Console\Form\Exception\FeatureNotSupportedException;
+use PTK\Console\Form\Field\FieldAbstract;
+use PTK\Console\Form\Field\FieldInterface;
+
+/**
+ * Campo de senha
+ *
+ */
+class PasswordField extends FieldAbstract {
+    
+    /**
+     * 
+     * @param string|int $id
+     * @param string $label
+     * @inheritDoc
+     */
+    public function __construct(string|int $id, string $label) {
+        parent::__construct($id, $label);
+    }
+    
+    /**
+     * 
+     * @return void
+     * @inheritDoc
+     */
+    public function ask(): void {
+        $label = $this->label;
+        if($this->requiredIndicator !== null && $this->required){
+            $label .= " {$this->requiredIndicator}";
+        }
+        
+        $this->climate->out("$label:");
+        $input = $this->climate->password('>');
+        $this->answer = $input->prompt();
+        
+        
+        if($this->required){
+            if($this->answer === ''){
+                $this->climate->error('Required!');
+                $this->ask();
+            }
+        }
+        
+        if($this->validator !== null){
+            $validator = $this->validator;
+            if($validator($this->answer) === false){
+                $this->climate->error($this->validatorMessage);
+                $this->ask();
+            }
+        }
+    }
+    
+    public function setDefault(mixed $default): FieldInterface {
+        throw new FeatureNotSupportedException('Default value not supported by password field.');
+    }
+    
+    public function showDefaultInLabel(bool $show): FieldInterface {
+        throw new FeatureNotSupportedException('Default value not supported by password field.');
+    }
+
+}

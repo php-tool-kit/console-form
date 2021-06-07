@@ -11,12 +11,12 @@ $nome->setValidator(function($answer){
     return (strlen($answer) >= 5)? true : false;
 }, 'Nome deve ter 5 caracteres no mínimo.');
 
-$sobrenome = new PTK\Console\Form\Field\TextField('sobrenome', 'Sobrenome');
+$senha = new PTK\Console\Form\Field\PasswordField('senha', 'Senha');
 
 $idade = new PTK\Console\Form\Field\TextField('idade', 'Idade');
 
 $form->setField($nome)
-        ->setField($sobrenome)
+        ->setField($senha)
         ->setField($idade);
 
 
