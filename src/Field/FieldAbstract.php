@@ -67,6 +67,12 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
+     * @var bool O valor default é exibido?
+     */
+    protected bool $showDefaultInLabel = true;
+    
+    /**
+     * 
      * @param string|int $id
      * @param string $label
      * @inheritDoc
@@ -148,6 +154,17 @@ abstract class FieldAbstract implements FieldInterface {
      */
     public function setRequiredIndicator(?string $indicator): FieldInterface {
         $this->requiredIndicator = $indicator;
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param bool $show
+     * @return FieldInterface
+     * @inheritDoc
+     */
+    public function showDefaultInLabel(bool $show): FieldInterface {
+        $this->showDefaultInLabel = $show;
         return $this;
     }
 

@@ -31,6 +31,10 @@ class TextField extends FieldAbstract {
             $label .= " {$this->requiredIndicator}";
         }
         
+        if($this->default !== null && $this->showDefaultInLabel){
+            $label .= " [{$this->default}]";
+        }
+        
         $this->climate->out("$label:");
         $input = $this->climate->input('>');
         $this->answer = $input->prompt();
