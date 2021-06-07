@@ -55,6 +55,12 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
+     * @var mixed Valor padrão.
+     */
+    protected mixed $default = null;
+    
+    /**
+     * 
      * @param string|int $id
      * @param string $label
      * @inheritDoc
@@ -114,6 +120,17 @@ abstract class FieldAbstract implements FieldInterface {
         $this->required = true;
         $this->validator = $validator;
         $this->validatorMessage = $message;
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param mixed $default
+     * @return FieldInterface
+     * @inheritDoc
+     */
+    public function setDefault(mixed $default): FieldInterface {
+        $this->default = $default;
         return $this;
     }
 

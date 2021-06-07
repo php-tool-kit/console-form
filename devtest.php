@@ -6,6 +6,7 @@ $form = new \PTK\Console\Form\Form();
 
 $nome = new PTK\Console\Form\Field\TextField('nome', 'Nome');
 $nome->required(true);
+$nome->setDefault('Everton');
 $nome->setValidator(function($answer){
     return (strlen($answer) >= 5)? true : false;
 }, 'Nome deve ter 5 caracteres no mínimo.');

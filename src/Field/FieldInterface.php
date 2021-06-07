@@ -6,7 +6,6 @@ namespace PTK\Console\Form\Field;
  * Interface para os campos de formulário.
  * 
  * @author Everton
- * @todo Implementar valor default para o campo
  */
 interface FieldInterface {
     
@@ -60,4 +59,12 @@ interface FieldInterface {
      * @return FieldInterface
      */
     public function setValidator(callable $validator, string $message): FieldInterface;
+    
+    /**
+     * Valor padrão para o campo.
+     * 
+     * @param mixed $default
+     * @return FieldInterface
+     */
+    public function setDefault(mixed $default): FieldInterface;
 }

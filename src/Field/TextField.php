@@ -29,6 +29,10 @@ class TextField extends FieldAbstract {
         $input = $this->climate->input('>');
         $this->answer = $input->prompt();
         
+        if($this->answer === ''){
+            if($this->default !== null) $this->answer = $this->default;
+        }
+        
         if($this->required){
             if($this->answer === ''){
                 $this->climate->error('Required!');
