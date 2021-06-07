@@ -19,15 +19,18 @@ $form = new \PTK\Console\Form\Form();
 //        ->setField($senha)
 //        ->setField($idade);
 
-$number = new \PTK\Console\Form\Field\NumberField('number', 'Número');
-$number->setDecimals(2)
-        ->setDecimalSeparator(',')
-        ->setThousandsSeparator('.')
-        ->setDefault(10)
-        ->setMin(5)
-        ->setMax(15)
-        ->required(true);
-$form->setField($number);
+//$number = new \PTK\Console\Form\Field\NumberField('number', 'Número');
+//$number->setDecimals(2)
+//        ->setDecimalSeparator(',')
+//        ->setThousandsSeparator('.')
+//        ->setDefault(10)
+//        ->setMin(5)
+//        ->setMax(15)
+//        ->required(true);
+//$form->setField($number);
+
+$memo = new PTK\Console\Form\Field\MemoField('memo', 'Memorando');
+$form->setField($memo);
 
 $form->setTitle('Hello world Console\Form')
         ->setDetail('Testes de uso durante o desenvolvimento.');
@@ -35,4 +38,4 @@ $form->ask();
 
 print_r($form->answers());
 
-echo $number->format(), PHP_EOL;
+//echo $number->format(), PHP_EOL;
