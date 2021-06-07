@@ -25,7 +25,13 @@ class TextField extends FieldAbstract {
      * @inheritDoc
      */
     public function ask(): void {
-        $this->climate->out("{$this->label}:");
+        
+        $label = $this->label;
+        if($this->requiredIndicator !== null && $this->required){
+            $label .= " {$this->requiredIndicator}";
+        }
+        
+        $this->climate->out("$label:");
         $input = $this->climate->input('>');
         $this->answer = $input->prompt();
         

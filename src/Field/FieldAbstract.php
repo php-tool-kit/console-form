@@ -60,6 +60,12 @@ abstract class FieldAbstract implements FieldInterface {
     protected mixed $default = null;
     
     /**
+     * Caracter indicador de campo requerido.
+     * @var string|null
+     */
+    protected ?string $requiredIndicator = '*';
+    
+    /**
      * 
      * @param string|int $id
      * @param string $label
@@ -131,6 +137,17 @@ abstract class FieldAbstract implements FieldInterface {
      */
     public function setDefault(mixed $default): FieldInterface {
         $this->default = $default;
+        return $this;
+    }
+    
+    /**
+     * 
+     * @param string|null $indicator
+     * @return FieldInterface
+     * @inheritDoc
+     */
+    public function setRequiredIndicator(?string $indicator): FieldInterface {
+        $this->requiredIndicator = $indicator;
         return $this;
     }
 

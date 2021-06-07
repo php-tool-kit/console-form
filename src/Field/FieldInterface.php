@@ -67,4 +67,11 @@ interface FieldInterface {
      * @return FieldInterface
      */
     public function setDefault(mixed $default): FieldInterface;
+    
+    /**
+     * Define o indicador de de campo requerido
+     * @param string|null $indicator Um ou mais caracteres. Null se não for exibido. O padrão é *
+     * @return FieldInterface
+     */
+    public function setRequiredIndicator(?string $indicator): FieldInterface;
 }
