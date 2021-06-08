@@ -41,9 +41,15 @@ $form = new \PTK\Console\Form\Form();
 //$yn->setDefault(true);
 //$form->setField($yn);
 
-$choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha uma opção', ['Option 1', 'Option 2', 'Option 3']);
-//$choice->setDefault(1);
-$form->setField($choice);
+//$choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha uma opção', ['Option 1', 'Option 2', 'Option 3']);
+////$choice->setDefault(1);
+//$form->setField($choice);
+
+
+$select = new \PTK\Console\Form\Field\SelectField('sel', 'Selecione', ['Option 1', 'Option 2', 'Option 3']);
+$select->setDefault([1])
+        ->setShowMode(\PTK\Console\Form\Field\SelectField::SHOW_MODE_CLEAR);
+$form->setField($select);
 
 
 $form->setTitle('Hello world Console\Form')
@@ -54,4 +60,5 @@ print_r($form->answers());
 
 //echo $number->format(), PHP_EOL;
 //echo $date->format(), PHP_EOL;
-echo $choice->getOptionValue(), PHP_EOL;
+//echo $choice->getOptionValue(), PHP_EOL;
+print_r($select->getSelection());

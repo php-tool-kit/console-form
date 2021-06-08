@@ -19,19 +19,19 @@ class ChoiceField extends FieldAbstract {
     }
     
     public function isRequired(): bool {
-        throw new FeatureNotSupportedException('Yes/No always required.');
+        throw new FeatureNotSupportedException('Always required.');
     }
 
     public function required(bool $required): FieldInterface {
-        throw new FeatureNotSupportedException('Yes/No always required.');
+        throw new FeatureNotSupportedException('Always required.');
     }
 
     public function setRequiredIndicator(?string $indicator): FieldInterface {
-        throw new FeatureNotSupportedException('Yes/No always required.');
+        throw new FeatureNotSupportedException('Always required.');
     }
 
     public function showDefaultInLabel(bool $show): FieldInterface {
-        throw new FeatureNotSupportedException('Yes/No always required.');
+        throw new FeatureNotSupportedException('Always required.');
     }
     
     public function setListTitle(string $title): ChoiceField {

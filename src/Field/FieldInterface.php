@@ -59,7 +59,7 @@ interface FieldInterface {
      * @param mixed $default
      * @return FieldInterface
      */
-    public function setDefault(mixed $default): FieldInterface;
+    public function setDefault($default): FieldInterface;
     
     /**
      * Define o indicador de de campo requerido
