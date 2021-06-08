@@ -10,8 +10,8 @@ use PTK\Console\Form\Field\FieldInterface;
  * Campo de senha
  *
  */
-class PasswordField extends FieldAbstract implements RequiredInterface {
-    use RequiredTrait;
+class PasswordField extends FieldAbstract implements RequiredInterface, ValidateInterface {
+    use RequiredTrait, ValidadeTrait;
     
     /**
      * 
@@ -46,12 +46,9 @@ class PasswordField extends FieldAbstract implements RequiredInterface {
             }
         }
         
-        if($this->validator !== null){
-            $validator = $this->validator;
-            if($validator($this->answer) === false){
-                $this->climate->error($this->validatorMessage);
-                $this->ask();
-            }
+        while ($this->validate() === false) {
+            $this->climate->error($this->validatorMessage);
+            $this->ask();
         }
     }
     

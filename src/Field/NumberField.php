@@ -7,8 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class NumberField extends FieldAbstract implements DefaultInterface, RequiredInterface {
-    use DefaultTrait, RequiredTrait;
+class NumberField extends FieldAbstract implements DefaultInterface, RequiredInterface, ValidateInterface {
+    use DefaultTrait, RequiredTrait, ValidadeTrait;
 
     protected int|float|null $min = null;
     protected int|float|null $max = null;
@@ -141,12 +141,9 @@ class NumberField extends FieldAbstract implements DefaultInterface, RequiredInt
             }
         }
 
-        if ($this->validator !== null) {
-            $validator = $this->validator;
-            if ($validator($this->answer) === false) {
-                $this->climate->error($this->validatorMessage);
-                $this->ask();
-            }
+        while ($this->validate() === false) {
+            $this->climate->error($this->validatorMessage);
+            $this->ask();
         }
 
         if ($this->min !== null) {

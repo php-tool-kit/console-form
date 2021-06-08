@@ -10,8 +10,8 @@ use InvalidArgumentException;
  *
  * @author Everton
  */
-class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredInterface {
-    use DefaultTrait, RequiredTrait;
+class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredInterface, ValidateInterface {
+    use DefaultTrait, RequiredTrait, ValidadeTrait;
 
     protected string $inputFormat;
     protected string $labelInputFormat = '';
@@ -85,12 +85,9 @@ class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredI
             }
         }
 
-        if ($this->validator !== null) {
-            $validator = $this->validator;
-            if ($validator($this->answer) === false) {
-                $this->climate->error($this->validatorMessage);
-                $this->ask();
-            }
+        while ($this->validate() === false) {
+            $this->climate->error($this->validatorMessage);
+            $this->ask();
         }
     }
 

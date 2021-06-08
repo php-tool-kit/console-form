@@ -37,18 +37,6 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
-     * @var callable|null Validador do campo.
-     */
-    protected $validator = null;
-    
-    /**
-     * 
-     * @var string Mensagem caso a validação falhe.
-     */
-    protected string $validatorMessage = '';
-    
-    /**
-     * 
      * @param string|int $id
      * @param string $label
      * @inheritDoc
@@ -75,20 +63,6 @@ abstract class FieldAbstract implements FieldInterface {
      */
     public function id(): string|int {
         return $this->id;
-    }
-    
-    /**
-     * 
-     * @param callable $validator
-     * @param string $message
-     * @return FieldInterface
-     * @inheritDoc
-     */
-    public function setValidator(callable $validator, string $message): FieldInterface {
-        $this->required = true;
-        $this->validator = $validator;
-        $this->validatorMessage = $message;
-        return $this;
     }
     
     /**

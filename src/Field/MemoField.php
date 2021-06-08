@@ -7,8 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class MemoField extends FieldAbstract implements DefaultInterface, RequiredInterface {
-    use DefaultTrait, RequiredTrait;
+class MemoField extends FieldAbstract implements DefaultInterface, RequiredInterface, ValidateInterface {
+    use DefaultTrait, RequiredTrait, ValidadeTrait;
 
     /**
      * 
@@ -58,12 +58,9 @@ class MemoField extends FieldAbstract implements DefaultInterface, RequiredInter
             }
         }
 
-        if ($this->validator !== null) {
-            $validator = $this->validator;
-            if ($validator($this->answer) === false) {
-                $this->climate->error($this->validatorMessage);
-                $this->ask();
-            }
+        while ($this->validate() === false) {
+            $this->climate->error($this->validatorMessage);
+            $this->ask();
         }
     }
 
