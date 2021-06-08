@@ -2,6 +2,9 @@
 
 namespace PTK\Console\Form\Field;
 
+use DateTime;
+use InvalidArgumentException;
+
 /**
  * Campo de data/hora
  *
@@ -13,7 +16,7 @@ class DateTimeField extends FieldAbstract {
     protected string $labelInputFormat = '';
     protected string $outputFormat;
     protected bool $showFormatInLabel = true;
-    protected \DateTime $object;
+    protected DateTime $object;
 
     /**
      * 
@@ -37,7 +40,7 @@ class DateTimeField extends FieldAbstract {
     }
 
     public function setDefault(mixed $default): DateTimeField {
-        if ($default instanceof \DateTime) {
+        if ($default instanceof DateTime) {
             $this->default = $default;
             return $this;
         }
@@ -95,7 +98,7 @@ class DateTimeField extends FieldAbstract {
      * @return void
      */
     protected function parseInput(): void {
-        $this->object = \DateTime::createFromFormat($this->inputFormat, $this->answer);
+        $this->object = DateTime::createFromFormat($this->inputFormat, $this->answer);
     }
 
     /**
@@ -126,9 +129,9 @@ class DateTimeField extends FieldAbstract {
 
     /**
      * 
-     * @return \DateTime
+     * @return DateTime
      */
-    public function object(): \DateTime {
+    public function object(): DateTime {
         return $this->object;
     }
 
