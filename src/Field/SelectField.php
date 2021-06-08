@@ -89,6 +89,7 @@ class SelectField extends FieldAbstract {
         }
 
         $this->printList();
+        $repeat = false;
 
         $this->climate->br();
         $this->climate->out("$label:");
@@ -105,9 +106,12 @@ class SelectField extends FieldAbstract {
             }
 
             if ($this->showMode === self::SHOW_MODE_REPEAT) {
-                $this->printList();
-                $this->climate->br();
-                $this->climate->out("$label:");
+                if ($repeat === true) {
+                    $this->printList();
+                    $this->climate->br();
+                    $this->climate->out("$label:");
+                }
+                $repeat = true;
             }
             $input = $this->climate->input('>');
             $this->answer = $input->prompt();
@@ -123,7 +127,6 @@ class SelectField extends FieldAbstract {
                 } else {
                     $this->selection[] = $this->answer;
                 }
-                print_r($this->selection);
             } else {
                 $this->climate->error("Chave [{$this->answer}] não é opção válida!");
             }
@@ -161,7 +164,7 @@ class SelectField extends FieldAbstract {
 
         return $selection;
     }
-    
+
     public function answer() {
         return $this->getSelection();
     }
