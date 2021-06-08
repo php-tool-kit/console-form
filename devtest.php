@@ -37,9 +37,14 @@ $form = new \PTK\Console\Form\Form();
 //        ->setLabelInputFormat('ddmmaaaa');
 //$form->setField($date);
 
-$yn = new \PTK\Console\Form\Field\YesNoField('yn', 'Confirma');
-$yn->setDefault(true);
-$form->setField($yn);
+//$yn = new \PTK\Console\Form\Field\YesNoField('yn', 'Confirma');
+//$yn->setDefault(true);
+//$form->setField($yn);
+
+$choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha uma opção', ['Option 1', 'Option 2', 'Option 3']);
+//$choice->setDefault(1);
+$form->setField($choice);
+
 
 $form->setTitle('Hello world Console\Form')
         ->setDetail('Testes de uso durante o desenvolvimento.');
@@ -49,3 +54,4 @@ print_r($form->answers());
 
 //echo $number->format(), PHP_EOL;
 //echo $date->format(), PHP_EOL;
+echo $choice->getOptionValue(), PHP_EOL;
