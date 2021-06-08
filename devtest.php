@@ -29,8 +29,13 @@ $form = new \PTK\Console\Form\Form();
 //        ->required(true);
 //$form->setField($number);
 
-$memo = new PTK\Console\Form\Field\MemoField('memo', 'Memorando');
-$form->setField($memo);
+//$memo = new PTK\Console\Form\Field\MemoField('memo', 'Memorando');
+//$form->setField($memo);
+
+$date = new \PTK\Console\Form\Field\DateTimeField('data', 'Data', 'dmY');
+$date->setOutputFormat('d/m/Y')
+        ->setLabelInputFormat('ddmmaaaa');
+$form->setField($date);
 
 $form->setTitle('Hello world Console\Form')
         ->setDetail('Testes de uso durante o desenvolvimento.');
@@ -39,3 +44,4 @@ $form->ask();
 print_r($form->answers());
 
 //echo $number->format(), PHP_EOL;
+echo $date->format(), PHP_EOL;

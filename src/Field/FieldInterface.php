@@ -10,13 +10,6 @@ namespace PTK\Console\Form\Field;
 interface FieldInterface {
     
     /**
-     * 
-     * @param string|int $id Id do formulário.
-     * @param string $label Rótulo que será exibido.
-     */
-    public function __construct(string|int $id, string $label);
-
-    /**
      * Pergunta pelo valor do campo.
      * @return void
      */

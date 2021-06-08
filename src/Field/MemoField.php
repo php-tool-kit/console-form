@@ -41,7 +41,7 @@ class MemoField extends FieldAbstract {
         } elseif (\PTK\Console\Form\Helper\System::getOS() == \PTK\Console\Form\Helper\System::LINUX) {
             $this->climate->out("CTRL+D to end!");
         }
-        $input = $this->climate->input('>');
+        $input = $this->climate->input('>>>');
         $input->multiLine();
         $this->answer = $input->prompt();
 

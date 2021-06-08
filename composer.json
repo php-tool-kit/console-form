@@ -18,5 +18,12 @@
         "psr-4": {
             "PTK\\Console\\Form\\": "src"
         }
+    },
+    "scripts": {
+        "push": [
+            "git add .",
+            "git commit",
+            "git push"
+        ]
     }
 }
