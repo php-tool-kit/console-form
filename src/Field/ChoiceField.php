@@ -89,7 +89,13 @@ class ChoiceField extends FieldAbstract {
         }
     }
     
-    public function getOptionValue(): mixed {
-        return $this->options[$this->answer];
+    public function getChoice(): mixed {
+        return [
+            $this->answer => $this->options[$this->answer]
+        ];
+    }
+    
+    public function answer() {
+        return $this->getChoice();
     }
 }

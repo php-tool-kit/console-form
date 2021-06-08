@@ -134,5 +134,9 @@ class DateTimeField extends FieldAbstract {
     public function object(): DateTime {
         return $this->object;
     }
+    
+    public function answer() {
+        return $this->object();
+    }
 
 }

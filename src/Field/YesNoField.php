@@ -99,5 +99,5 @@ class YesNoField extends FieldAbstract {
             }
         } while ($this->answer !== true && $this->answer !== false);
     }
-
+    
 }

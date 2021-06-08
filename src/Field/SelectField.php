@@ -161,5 +161,9 @@ class SelectField extends FieldAbstract {
 
         return $selection;
     }
+    
+    public function answer() {
+        return $this->getSelection();
+    }
 
 }
