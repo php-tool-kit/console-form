@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 
 $form = new \PTK\Console\Form\Form();
-/*
+
 $nome = new PTK\Console\Form\Field\TextField('nome', 'Nome');
 $nome->required(true);
 $nome->setDefault('Everton');
@@ -45,7 +45,6 @@ $choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha uma opção
 $choice->setDefault(1);
 $form->setField($choice);
 
-*/
 $select = new \PTK\Console\Form\Field\SelectField('sel', 'Selecione', ['Option 1', 'Option 2', 'Option 3']);
 $select->setDefault([1])
         ->setShowMode(\PTK\Console\Form\Field\SelectField::SHOW_MODE_REPEAT);
