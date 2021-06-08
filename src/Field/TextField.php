@@ -7,8 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class TextField extends FieldAbstract implements DefaultInterface {
-    use DefaultTrait;
+class TextField extends FieldAbstract implements DefaultInterface, RequiredInterface {
+    use DefaultTrait, RequiredTrait;
 
     /**
      * 

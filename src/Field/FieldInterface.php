@@ -28,21 +28,6 @@ interface FieldInterface {
     public function id(): string|int;
     
     /**
-     * Configura se o campo é de preenchimento obrigatório ou não.
-     * 
-     * @param bool $required
-     * @return FieldInterface
-     */
-    public function required(bool $required): FieldInterface;
-    
-    /**
-     * Indica se o cmapo está configurado como obrigatório ou não.
-     * 
-     * @return bool
-     */
-    public function isRequired(): bool;
-    
-    /**
      * Define um validador para os dados do campo.
      * 
      * @param callable $validator Um validador do tipo callable. Deve receber 
@@ -52,15 +37,5 @@ interface FieldInterface {
      * @return FieldInterface
      */
     public function setValidator(callable $validator, string $message): FieldInterface;
-    
-    
-    
-    /**
-     * Define o indicador de de campo requerido
-     * @param string|null $indicator Um ou mais caracteres. Null se não for exibido. O padrão é *
-     * @return FieldInterface
-     */
-    public function setRequiredIndicator(?string $indicator): FieldInterface;
-    
     
 }

@@ -10,8 +10,8 @@ use InvalidArgumentException;
  *
  * @author Everton
  */
-class DateTimeField extends FieldAbstract implements DefaultInterface {
-    use DefaultTrait;
+class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredInterface {
+    use DefaultTrait, RequiredTrait;
 
     protected string $inputFormat;
     protected string $labelInputFormat = '';

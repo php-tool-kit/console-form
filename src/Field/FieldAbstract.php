@@ -37,12 +37,6 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
-     * @var bool
-     */
-    protected bool $required = false;
-    
-    /**
-     * 
      * @var callable|null Validador do campo.
      */
     protected $validator = null;
@@ -52,12 +46,6 @@ abstract class FieldAbstract implements FieldInterface {
      * @var string Mensagem caso a validação falhe.
      */
     protected string $validatorMessage = '';
-    
-    /**
-     * Caracter indicador de campo requerido.
-     * @var string|null
-     */
-    protected ?string $requiredIndicator = '*';
     
     /**
      * 
@@ -91,26 +79,6 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
-     * @param bool $required
-     * @return FieldInterface
-     * @inheritDoc
-     */
-    public function required(bool $required): FieldInterface {
-        $this->required = $required;
-        return $this;
-    }
-    
-    /**
-     * 
-     * @return bool
-     * @inheritDoc
-     */
-    public function isRequired(): bool {
-        return $this->required;
-    }
-    
-    /**
-     * 
      * @param callable $validator
      * @param string $message
      * @return FieldInterface
@@ -123,17 +91,6 @@ abstract class FieldAbstract implements FieldInterface {
         return $this;
     }
     
-    /**
-     * 
-     * @param string|null $indicator
-     * @return FieldInterface
-     * @inheritDoc
-     */
-    public function setRequiredIndicator(?string $indicator): FieldInterface {
-        $this->requiredIndicator = $indicator;
-        return $this;
-    }
-
     /**
      * @inheritDoc
      */

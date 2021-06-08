@@ -19,18 +19,6 @@ class ChoiceField extends FieldAbstract implements DefaultInterface {
         $this->options = $options;
     }
     
-    public function isRequired(): bool {
-        throw new FeatureNotSupportedException('Always required.');
-    }
-
-    public function required(bool $required): FieldInterface {
-        throw new FeatureNotSupportedException('Always required.');
-    }
-
-    public function setRequiredIndicator(?string $indicator): FieldInterface {
-        throw new FeatureNotSupportedException('Always required.');
-    }
-
     public function setListTitle(string $title): ChoiceField {
         $this->listTitle = $title;
         return $this;

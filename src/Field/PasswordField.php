@@ -10,7 +10,8 @@ use PTK\Console\Form\Field\FieldInterface;
  * Campo de senha
  *
  */
-class PasswordField extends FieldAbstract {
+class PasswordField extends FieldAbstract implements RequiredInterface {
+    use RequiredTrait;
     
     /**
      * 
