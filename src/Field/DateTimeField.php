@@ -36,7 +36,7 @@ class DateTimeField extends FieldAbstract {
         return $this;
     }
 
-    public function setDefault(mixed $default): FieldInterface {
+    public function setDefault(mixed $default): DateTimeField {
         if ($default instanceof \DateTime) {
             $this->default = $default;
             return $this;
@@ -103,7 +103,7 @@ class DateTimeField extends FieldAbstract {
      * @param bool $show
      * @return NumberField
      */
-    public function showFormatInLabel(bool $show): NumberField {
+    public function showFormatInLabel(bool $show): DateTimeField {
         $this->showFormatInLabel = $show;
         return $this;
     }
