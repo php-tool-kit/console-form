@@ -7,7 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class NumberField extends FieldAbstract {
+class NumberField extends FieldAbstract implements DefaultInterface {
+    use DefaultTrait;
 
     protected int|float|null $min = null;
     protected int|float|null $max = null;

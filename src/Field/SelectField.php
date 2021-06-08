@@ -7,7 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class SelectField extends FieldAbstract {
+class SelectField extends FieldAbstract implements DefaultInterface {
+    use DefaultTrait;
 
     protected array $options;
 
@@ -29,7 +30,6 @@ class SelectField extends FieldAbstract {
     protected int $showMode = 0;
     protected string $listTitle = '';
     protected array $selection = [];
-    protected mixed $default = [];
     protected string $sentinel = '';
 
     public function __construct(string|int $id, string $label, array $options) {

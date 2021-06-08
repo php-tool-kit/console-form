@@ -53,13 +53,7 @@ interface FieldInterface {
      */
     public function setValidator(callable $validator, string $message): FieldInterface;
     
-    /**
-     * Valor padrão para o campo.
-     * 
-     * @param mixed $default
-     * @return FieldInterface
-     */
-    public function setDefault($default): FieldInterface;
+    
     
     /**
      * Define o indicador de de campo requerido
@@ -68,11 +62,5 @@ interface FieldInterface {
      */
     public function setRequiredIndicator(?string $indicator): FieldInterface;
     
-    /**
-     * Indica se o valor default será exibido no rótulo do campo (quando ele existir).
-     * 
-     * @param bool $show
-     * @return FieldInterface
-     */
-    public function showDefaultInLabel(bool $show): FieldInterface;
+    
 }

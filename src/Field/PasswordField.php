@@ -54,12 +54,4 @@ class PasswordField extends FieldAbstract {
         }
     }
     
-    public function setDefault(mixed $default): FieldInterface {
-        throw new FeatureNotSupportedException('Default value not supported by password field.');
-    }
-    
-    public function showDefaultInLabel(bool $show): FieldInterface {
-        throw new FeatureNotSupportedException('Default value not supported by password field.');
-    }
-
 }

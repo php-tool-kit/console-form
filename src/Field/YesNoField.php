@@ -7,7 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class YesNoField extends FieldAbstract {
+class YesNoField extends FieldAbstract implements DefaultInterface {
+    use DefaultTrait;
 
     protected mixed $default = null;
 

@@ -54,22 +54,10 @@ abstract class FieldAbstract implements FieldInterface {
     protected string $validatorMessage = '';
     
     /**
-     * 
-     * @var mixed Valor padrão.
-     */
-    protected mixed $default = null;
-    
-    /**
      * Caracter indicador de campo requerido.
      * @var string|null
      */
     protected ?string $requiredIndicator = '*';
-    
-    /**
-     * 
-     * @var bool O valor default é exibido?
-     */
-    protected bool $showDefaultInLabel = true;
     
     /**
      * 
@@ -137,34 +125,12 @@ abstract class FieldAbstract implements FieldInterface {
     
     /**
      * 
-     * @param mixed $default
-     * @return FieldInterface
-     * @inheritDoc
-     */
-    public function setDefault(mixed $default): FieldInterface {
-        $this->default = $default;
-        return $this;
-    }
-    
-    /**
-     * 
      * @param string|null $indicator
      * @return FieldInterface
      * @inheritDoc
      */
     public function setRequiredIndicator(?string $indicator): FieldInterface {
         $this->requiredIndicator = $indicator;
-        return $this;
-    }
-    
-    /**
-     * 
-     * @param bool $show
-     * @return FieldInterface
-     * @inheritDoc
-     */
-    public function showDefaultInLabel(bool $show): FieldInterface {
-        $this->showDefaultInLabel = $show;
         return $this;
     }
 

@@ -7,7 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class MemoField extends FieldAbstract {
+class MemoField extends FieldAbstract implements DefaultInterface {
+    use DefaultTrait;
 
     /**
      * 

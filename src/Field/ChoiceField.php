@@ -7,7 +7,8 @@ namespace PTK\Console\Form\Field;
  *
  * @author Everton
  */
-class ChoiceField extends FieldAbstract {
+class ChoiceField extends FieldAbstract implements DefaultInterface {
+    use DefaultTrait;
     
     protected array $options;
     
@@ -30,10 +31,6 @@ class ChoiceField extends FieldAbstract {
         throw new FeatureNotSupportedException('Always required.');
     }
 
-    public function showDefaultInLabel(bool $show): FieldInterface {
-        throw new FeatureNotSupportedException('Always required.');
-    }
-    
     public function setListTitle(string $title): ChoiceField {
         $this->listTitle = $title;
         return $this;
