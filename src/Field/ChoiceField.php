@@ -54,7 +54,7 @@ class ChoiceField extends FieldAbstract implements DefaultInterface {
                 if ($this->default !== null)
                     $this->answer = $this->default;
             }
-        }while (key_exists($this->answer, array_keys($this->options)) === false);
+        }while (key_exists($this->answer, $this->options) === false);
     }
 
     protected function determineMaxSizeOfKeys(): int {
