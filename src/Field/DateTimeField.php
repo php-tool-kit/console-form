@@ -15,7 +15,6 @@ class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredI
 
     protected string $inputFormat;
     protected string $labelInputFormat = '';
-    protected string $outputFormat;
     protected bool $showFormatInLabel = true;
     protected DateTime $object;
 
@@ -32,11 +31,6 @@ class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredI
     
     public function setLabelInputFormat(string $label): DateTimeField {
         $this->labelInputFormat = $label;
-        return $this;
-    }
-
-    public function setOutputFormat(string $outputFormat): DateTimeField {
-        $this->outputFormat = $outputFormat;
         return $this;
     }
 
@@ -111,29 +105,17 @@ class DateTimeField extends FieldAbstract implements DefaultInterface, RequiredI
 
     /**
      * 
-     * @return string
-     */
-    public function format(): string {
-        return date($this->outputFormat, $this->object->getTimestamp());
-    }
-
-    /**
-     * 
-     * @return int
-     */
-    public function timestamp(): int {
-        return $this->object->getTimestamp();
-    }
-
-    /**
-     * 
      * @return DateTime
      */
     public function object(): DateTime {
         return $this->object;
     }
     
-    public function answer() {
+    /**
+     * 
+     * @return DateTime
+     */
+    public function answer(): DateTime {
         return $this->object();
     }
 

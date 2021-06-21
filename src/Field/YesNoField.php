@@ -11,6 +11,7 @@ class YesNoField extends FieldAbstract implements DefaultInterface {
     use DefaultTrait;
 
     protected mixed $default = null;
+    protected null|bool $choice = null;
 
     public function __construct(string|int $id, string $label) {
         parent::__construct($id, $label);
@@ -84,21 +85,24 @@ class YesNoField extends FieldAbstract implements DefaultInterface {
             switch ($this->answer) {
                 case 'y':
                 case 'Y':
-                    $this->answer = true;
+                    $this->choice = true;
                     break;
                 case 'n':
                 case 'N':
-                    $this->answer = false;
+                    $this->choice = false;
                     break;
                 case '':
                     if ($this->default !== null) {
-                        $this->answer = $this->default;
+                        $this->choice = $this->default;
                     };
                     break;
                 default:
                     break;
             }
-        } while ($this->answer !== true && $this->answer !== false);
+        } while ($this->choice !== true && $this->choice !== false);
     }
     
+    public function answer(): bool {
+        return $this->choice;
+    }
 }

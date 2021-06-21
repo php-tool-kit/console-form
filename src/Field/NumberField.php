@@ -18,6 +18,7 @@ class NumberField extends FieldAbstract implements DefaultInterface, RequiredInt
     protected string|null $thousandsSeparator = null;
     protected bool $showFormatInLabel = true;
     protected bool $showMinMaxInLabel = true;
+    protected string|float|int $number;
 
     /**
      * 
@@ -175,16 +176,19 @@ class NumberField extends FieldAbstract implements DefaultInterface, RequiredInt
             $this->answer = null;
             return;
         }
+        
+        $this->number = $this->answer;
+        
         if ($this->thousandsSeparator !== null) {
-            $this->answer = str_replace($this->thousandsSeparator, '', $this->answer);
+            $this->number = str_replace($this->thousandsSeparator, '', $this->number);
         }
         if ($this->decimalSeparator !== null) {
-            $this->answer = str_replace($this->decimalSeparator, '.', $this->answer);
+            $this->number = str_replace($this->decimalSeparator, '.', $this->number);
         }
         if ($this->onlyInt) {
-            settype($this->answer, 'integer');
+            settype($this->number, 'integer');
         } else {
-            settype($this->answer, 'float');
+            settype($this->number, 'float');
         }
     }
 
@@ -201,7 +205,10 @@ class NumberField extends FieldAbstract implements DefaultInterface, RequiredInt
                 $this->decimals = localeconv()['frac_digits'];
         }
 
-        return number_format($this->answer, $this->decimals, $this->decimalSeparator, $this->thousandsSeparator);
+        return number_format($this->number, $this->decimals, $this->decimalSeparator, $this->thousandsSeparator);
     }
-
+    
+    public function answer() {
+        return $this->number;
+    }
 }

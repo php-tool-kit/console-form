@@ -152,5 +152,8 @@ class SelectField extends FieldAbstract implements DefaultInterface {
     public function answer() {
         return $this->getSelection();
     }
-
+    
+    public function getRawInput(): array {
+        return $this->selection;
+    }
 }

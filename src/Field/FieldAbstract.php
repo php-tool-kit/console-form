@@ -69,5 +69,14 @@ abstract class FieldAbstract implements FieldInterface {
      * @inheritDoc
      */
     abstract public function ask(): void;
+    
+    /**
+     * Retorna a entrada do usuário do jeito que ela foi feita.
+     * 
+     * @return mixed
+     */
+    public function getRawInput(): mixed {
+        return $this->answer;
+    }
 
 }

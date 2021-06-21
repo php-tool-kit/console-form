@@ -2,57 +2,46 @@
 
 require 'vendor/autoload.php';
 
-$form = new \PTK\Console\Form\Form();
+//$choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha algo', [
+//    1 => 'Opção 1',
+//    2 => 'Opção 2',
+//    3 => 'Opção 3',
+//]);
+//$choice->ask();
+//echo $choice->getRawInput(), PHP_EOL;
+//print_r($choice->answer());
 
-$nome = new PTK\Console\Form\Field\TextField('nome', 'Nome');
-$nome->required(true);
-$nome->setDefault('Everton');
-$nome->setValidator(function($answer){
-    return (strlen($answer) >= 5)? true : false;
-}, 'Nome deve ter 5 caracteres no mínimo.');
+//$date = new \PTK\Console\Form\Field\DateTimeField('date', 'Data', 'dmY');
+//$date->setLabelInputFormat('ddmmmaaaa');
+//$date->ask();
+//echo $date->getRawInput(), PHP_EOL;
+//print_r($date->answer());
 
-$senha = new PTK\Console\Form\Field\PasswordField('senha', 'Senha');
+//$memo = new PTK\Console\Form\Field\MemoField('memo', 'Texto multilinhas');
+//$memo->ask();
+//echo $memo->getRawInput(), PHP_EOL;
+//print_r($memo->answer());
 
-$idade = new PTK\Console\Form\Field\TextField('idade', 'Idade');
+//$number = new PTK\Console\Form\Field\NumberField('number', 'Número');
+//$number
+//        ->setDecimals(2)
+//        ->setDecimalSeparator(',')
+//        ->setThousandsSeparator('.')
+//        ;
+//$number->ask();
+//echo $number->getRawInput(), PHP_EOL;
+//print_r($number->answer());
 
-$form->setField($nome)
-        ->setField($senha)
-        ->setField($idade);
+//$select = new PTK\Console\Form\Field\SelectField('select', 'Seleção múltipla', [
+//    'a' => 'Opção a',
+//    'b' => 'Opção b',
+//    'c' => 'Opção c',
+//]);
+//$select->ask();
+//print_r($select->getRawInput());
+//print_r($select->answer());
 
-$number = new \PTK\Console\Form\Field\NumberField('number', 'Número');
-$number->setDecimals(2)
-        ->setDecimalSeparator(',')
-        ->setThousandsSeparator('.')
-        ->setDefault(10)
-        ->setMin(5)
-        ->setMax(15)
-        ->required(true);
-$form->setField($number);
-
-$memo = new PTK\Console\Form\Field\MemoField('memo', 'Memorando');
-$form->setField($memo);
-
-$date = new \PTK\Console\Form\Field\DateTimeField('data', 'Data', 'dmY');
-$date->setOutputFormat('d/m/Y')
-        ->setLabelInputFormat('ddmmaaaa');
-$form->setField($date);
-
-$yn = new \PTK\Console\Form\Field\YesNoField('yn', 'Confirma');
-$yn->setDefault(true);
-$form->setField($yn);
-
-$choice = new \PTK\Console\Form\Field\ChoiceField('choice', 'Escolha uma opção', ['Option 1', 'Option 2', 'Option 3']);
-$choice->setDefault(1);
-$form->setField($choice);
-
-$select = new \PTK\Console\Form\Field\SelectField('sel', 'Selecione', ['Option 1', 'Option 2', 'Option 3']);
-$select->setDefault([1])
-        ->setShowMode(\PTK\Console\Form\Field\SelectField::SHOW_MODE_REPEAT);
-$form->setField($select);
-
-
-$form->setTitle('Hello world Console\Form')
-        ->setDetail('Testes de uso durante o desenvolvimento.');
-$form->ask();
-
-print_r($form->answers());
+$yn = new PTK\Console\Form\Field\YesNoField('yn', 'Sim/Não');
+$yn->ask();
+echo $yn->getRawInput(), PHP_EOL;
+print($yn->answer());
